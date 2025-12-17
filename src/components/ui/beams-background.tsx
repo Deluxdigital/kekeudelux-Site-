@@ -33,8 +33,8 @@ function createBeam(width: number, height: number): Beam {
     length: height * 2.5,
     angle,
     speed: 0.6 + Math.random() * 1.2,
-    opacity: 0.12 + Math.random() * 0.16,
-    hue: 190 + Math.random() * 70,
+      opacity: 0.12 + Math.random() * 0.16,
+      hue: 20 + Math.random() * 20,
     pulse: Math.random() * Math.PI * 2,
     pulseSpeed: 0.02 + Math.random() * 0.03,
   };
@@ -94,7 +94,7 @@ export function BeamsBackground({
         (Math.random() - 0.5) * spacing * 0.5;
       beam.width = 100 + Math.random() * 100;
       beam.speed = 0.5 + Math.random() * 0.4;
-      beam.hue = 190 + (index * 70) / totalBeams;
+      beam.hue = 20 + (index * 20) / totalBeams;
       beam.opacity = 0.2 + Math.random() * 0.1;
       return beam;
     }
@@ -176,10 +176,10 @@ export function BeamsBackground({
         )}
       />
 
-      {/* leve vinheta para cair no preto nas bordas */}
+      {/* leve vinheta para cair no preto nas bordas em laranja */}
       <div
         className={cn(
-          "pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--neon-blue)/0.35)_0%,transparent_55%),radial-gradient(circle_at_left,hsl(var(--neon-purple)/0.3)_0%,transparent_55%),radial-gradient(circle_at_right,hsl(var(--neon-cyan)/0.3)_0%,transparent_55%)]",
+          "pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--neon-orange)/0.35)_0%,transparent_55%),radial-gradient(circle_at_left,hsl(var(--neon-red)/0.3)_0%,transparent_55%),radial-gradient(circle_at_right,hsl(var(--neon-orange)/0.3)_0%,transparent_55%)]",
           monochrome && "grayscale"
         )}
       />
