@@ -5,12 +5,12 @@ import Services from "@/components/landing/Services";
 import Portfolio from "@/components/landing/Portfolio";
 import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
-import { HeroGeometricBackground } from "@/components/ui/shape-landing-hero";
-
-const Index = () => {
-  return (
-    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <HeroGeometricBackground />
+import { BackgroundPaths } from "@/components/ui/background-paths";
+ 
+ const Index = () => {
+   return (
+     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+       <BackgroundPaths mode="background" title="Portfólio em movimento" />
       <div className="relative z-10">
         <Header />
         <Hero />
