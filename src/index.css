@@ -107,3 +107,15 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+
+  .animate-shimmer-slide {
+    animation: shimmer-slide var(--speed, 3s) ease-in-out infinite alternate;
+  }
+}
