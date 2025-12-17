@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import logo from "@/assets/logo-dlx.png";
 import { LayoutDashboard, Users, FileText, ListTodo, LogOut } from "lucide-react";
+import { BeamsBackground } from "@/components/ui/beams-background";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const { signOut, user } = useAuth();
@@ -16,8 +17,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <aside className="fixed left-0 top-0 h-full w-64 border-r border-border bg-card p-6">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <aside className="fixed left-0 top-0 h-full w-64 border-r border-border bg-card p-6 z-20">
         <div className="mb-8">
           <img src={logo} alt="KekeuDelux" className="h-10 w-auto mb-4" />
           <p className="text-xs text-muted-foreground">{user?.email}</p>
@@ -57,7 +58,10 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </aside>
 
-      <main className="ml-64 p-8">{children}</main>
+      <main className="relative ml-64 p-8">
+        <BeamsBackground className="absolute inset-0 -z-10 opacity-70" intensity="subtle" />
+        {children}
+      </main>
     </div>
   );
 };
