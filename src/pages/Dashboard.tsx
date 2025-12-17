@@ -11,6 +11,7 @@ const Dashboard = () => {
     clients: 0,
     budgets: 0,
     budgetsApproved: 0,
+    budgetsApprovedValue: 0,
     tasks: 0,
   });
 
@@ -18,22 +19,33 @@ const Dashboard = () => {
     const fetchStats = async () => {
       if (!user) return;
 
-      const [clientsRes, budgetsRes, tasksRes] = await Promise.all([
+      const [clientsRes, budgetsRes, tasksRes, budgetsApprovedRes, budgetsApprovedValuesRes] = await Promise.all([
         supabase.from("clients").select("*", { count: "exact", head: true }).eq("user_id", user.id),
         supabase.from("budgets").select("*", { count: "exact", head: true }).eq("user_id", user.id),
         supabase.from("tasks").select("*", { count: "exact", head: true }).eq("user_id", user.id).eq("status", "pending"),
+        supabase
+          .from("budgets")
+          .select("*", { count: "exact", head: true })
+          .eq("user_id", user.id)
+          .eq("status", "approved"),
+        supabase
+          .from("budgets")
+          .select("total_value")
+          .eq("user_id", user.id)
+          .eq("status", "approved"),
       ]);
 
-      const budgetsApprovedRes = await supabase
-        .from("budgets")
-        .select("*", { count: "exact", head: true })
-        .eq("user_id", user.id)
-        .eq("status", "approved");
+      const approvedBudgetsTotalValue =
+        budgetsApprovedValuesRes.data?.reduce(
+          (sum, budget) => sum + (budget.total_value || 0),
+          0,
+        ) || 0;
 
       setStats({
         clients: clientsRes.count || 0,
         budgets: budgetsRes.count || 0,
         budgetsApproved: budgetsApprovedRes.count || 0,
+        budgetsApprovedValue: approvedBudgetsTotalValue,
         tasks: tasksRes.count || 0,
       });
     };
@@ -61,10 +73,14 @@ const Dashboard = () => {
       description: "Tarefas aguardando conclusão",
     },
     {
-      title: "Taxa de Conversão",
-      value: stats.budgets > 0 ? `${Math.round((stats.budgetsApproved / stats.budgets) * 100)}%` : "0%",
+      title: "Valor Fechado (Aprovados)",
+      value: stats.budgetsApprovedValue.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 2,
+      }),
       icon: TrendingUp,
-      description: "Orçamentos aprovados",
+      description: "Soma dos orçamentos aprovados",
     },
   ];
 
