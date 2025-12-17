@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const Contact = () => {
   return (
@@ -14,25 +14,29 @@ const Contact = () => {
           </h2>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Seja para transformar sua marca, criar conteúdo visual de impacto ou dar vida às suas ideias com motion design.
+            Seja para transformar sua marca, criar conteúdo visual de impacto ou
+            dar vida às suas ideias com motion design.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_40px_rgba(168,85,247,0.6)] transition-all"
+            <ShimmerButton
+              background="hsl(var(--foreground))"
+              shimmerColor="#ffffff"
+              className="text-background min-w-[210px]"
               onClick={() => window.open("https://wa.me/seu-numero-aqui", "_blank")}
             >
               Falar no WhatsApp
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/50 hover:bg-primary/10 hover:border-primary"
-              onClick={() => window.open("https://www.behance.net/kekeudeluux", "_blank")}
+            </ShimmerButton>
+            <ShimmerButton
+              background="hsl(var(--background))"
+              shimmerColor="#ffffff"
+              className="text-foreground border border-border min-w-[230px]"
+              onClick={() =>
+                window.open("https://www.behance.net/kekeudeluux", "_blank")
+              }
             >
               Ver Portfólio no Behance
-            </Button>
+            </ShimmerButton>
           </div>
 
           <div className="pt-12 text-sm text-muted-foreground">
