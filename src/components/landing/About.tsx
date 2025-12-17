@@ -4,12 +4,8 @@ import profilePortrait from "@/assets/profile-portrait.png";
 const About = () => {
   return (
     <section id="sobre" className="relative py-24 px-4 overflow-hidden">
-      {/* fundo com efeito herói em preto e branco */}
-      <BeamsBackground
-        className="absolute inset-0 -z-10"
-        intensity="medium"
-        monochrome
-      />
+      {/* fundo com mesmo efeito gradiente animado do herói */}
+      <BeamsBackground className="absolute inset-0 -z-10" intensity="strong" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
