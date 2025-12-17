@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { BadgeCheck, MessageCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-
+import { BeamsBackground } from "@/components/ui/beams-background";
 interface ContactLinks {
   behance: string;
   whatsapp: string;
@@ -38,7 +38,8 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contato" className="py-24 px-4 bg-card/30">
+    <section id="contato" className="relative py-24 px-4 bg-card/30 overflow-hidden">
+      <BeamsBackground className="absolute inset-0 -z-10 opacity-80" intensity="subtle" />
       <div className="container mx-auto max-w-4xl text-center">
         <div className="space-y-6">
           <h2 className="text-4xl md:text-6xl font-bold">
