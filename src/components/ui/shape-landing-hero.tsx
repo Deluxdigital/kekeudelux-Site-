@@ -97,17 +97,14 @@ function ElegantShape({
 
 export function HeroGeometricBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-gradient-to-br from-background via-background to-background">
-      {/* subtle base gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(var(--neon-purple)/0.35),transparent_55%),radial-gradient(circle_at_bottom_right,hsl(var(--neon-cyan)/0.35),transparent_55%)]" />
-
-      {/* main shapes */}
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-[radial-gradient(circle_at_top_left,hsl(270_80%_15%)_0%,hsl(270_80%_5%)_45%),radial-gradient(circle_at_bottom_right,hsl(200_90%_18%)_0%,hsl(240_90%_4%)_50%)]">
+      {/* main moving shapes */}
       <ElegantShape
         width={520}
         height={160}
         rotate={-8}
         className="top-[12%] left-[8%]"
-        gradient="from-white/8 via-white/4 to-transparent"
+        gradient="from-white/15 via-white/8 to-transparent"
       />
       <ElegantShape
         width={460}
@@ -115,19 +112,16 @@ export function HeroGeometricBackground() {
         rotate={10}
         delay={2.4}
         className="top-[40%] right-[6%]"
-        gradient="from-neon-blue/30 via-neon-purple/20 to-transparent"
+        gradient="from-neon-blue/40 via-neon-purple/25 to-transparent"
       />
       <ElegantShape
         width={380}
         height={130}
         rotate={18}
         delay={4.2}
-        className="bottom-[10%] left-1/2 -translate-x-1/2"
-        gradient="from-neon-cyan/25 via-neon-blue/20 to-transparent"
+        className="bottom-[8%] left-1/2 -translate-x-1/2"
+        gradient="from-neon-cyan/35 via-neon-blue/25 to-transparent"
       />
-
-      {/* soft vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_120%)] opacity-60" />
     </div>
   );
 }
