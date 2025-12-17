@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo-dlx.png";
+import { BeamsBackground } from "@/components/ui/beams-background";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ const Login = () => {
           password,
         });
         if (error) throw error;
-        
+
         toast({
           title: "Conta criada!",
           description: "Você já pode fazer login.",
@@ -57,19 +58,24 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-background via-background to-primary/5">
-      <div className="w-full max-w-md">
+    <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+      {/* fundo hero animado reaproveitado */}
+      <BeamsBackground className="absolute inset-0 -z-10" intensity="strong" />
+
+      <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
           <img src={logo} alt="KekeuDelux" className="h-16 w-auto mx-auto mb-6" />
           <h1 className="text-3xl font-bold mb-2">
             {isSignUp ? "Criar Conta" : "Entrar no Painel"}
           </h1>
           <p className="text-muted-foreground">
-            {isSignUp ? "Registre-se para acessar o painel" : "Acesse seu painel de gerenciamento"}
+            {isSignUp
+              ? "Registre-se para acessar o painel"
+              : "Acesse seu painel de gerenciamento"}
           </p>
         </div>
 
-        <div className="p-8 rounded-xl bg-card border border-border shadow-lg">
+        <div className="p-8 rounded-2xl bg-card/90 border border-border/80 shadow-[0_0_40px_hsl(var(--foreground)/0.35)] backdrop-blur-md">
           <form onSubmit={handleAuth} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -97,7 +103,7 @@ const Login = () => {
 
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+              className="w-full bg-primary hover:bg-primary/90 shadow-[0_0_24px_hsl(var(--foreground)/0.45)]"
               disabled={loading}
             >
               {loading ? "Carregando..." : isSignUp ? "Criar Conta" : "Entrar"}
@@ -115,13 +121,16 @@ const Login = () => {
           </div>
 
           <div className="mt-6 text-center">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link
+              to="/"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
               ← Voltar ao site
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
