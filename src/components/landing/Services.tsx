@@ -1,4 +1,5 @@
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { BeamsBackground } from "@/components/ui/beams-background";
 import { motion } from "framer-motion";
 
 const services = [
@@ -49,7 +50,8 @@ const itemVariants = {
 
 const Services = () => {
   return (
-    <section id="servicos" className="py-24 px-4 bg-card/30">
+    <section id="servicos" className="relative py-24 px-4 bg-card/30 overflow-hidden">
+      <BeamsBackground className="absolute inset-0 -z-10 opacity-70" intensity="subtle" />
       <div className="container mx-auto">
         <motion.div
           className="text-center mb-16"
