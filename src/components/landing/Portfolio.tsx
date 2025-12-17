@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
+import { BeamsBackground } from "@/components/ui/beams-background";
 interface PortfolioItem {
   id: string;
   name: string;
@@ -29,7 +29,8 @@ const Portfolio = () => {
   const [hoveredItem, setHoveredItem] = useState<PortfolioItem | null>(null);
 
   return (
-    <section id="portfolio" className="py-24 px-4">
+    <section id="portfolio" className="relative py-24 px-4 overflow-hidden">
+      <BeamsBackground className="absolute inset-0 -z-10 opacity-70" intensity="subtle" />
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
