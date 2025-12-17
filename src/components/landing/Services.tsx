@@ -1,4 +1,5 @@
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -27,27 +28,68 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const Services = () => {
   return (
     <section id="servicos" className="py-24 px-4 bg-card/30">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+        <motion.div
+          className="text-center mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.4 }}
+        >
+          <motion.div
+            className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4"
+            variants={itemVariants}
+          >
             <span className="text-sm font-medium text-primary">O que eu faço</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          </motion.div>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            variants={itemVariants}
+          >
             Serviços &amp; Especialidades
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-muted-foreground max-w-2xl mx-auto"
+            variants={itemVariants}
+          >
             Design que comunica, motion que emociona, e resultados que transformam
             sua marca.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+        >
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
               className="relative group rounded-2xl bg-background border border-border/80 p-[1px] overflow-hidden"
             >
               <GlowingEffect
@@ -69,9 +111,9 @@ const Services = () => {
                   {service.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
