@@ -10,7 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Plus, Pencil, Trash2, Download } from "lucide-react";
+import { Plus, Pencil, Trash2, Download, CheckCircle2 } from "lucide-react";
 import { generateBudgetPDF } from "@/utils/pdfGenerator";
 import logo from "@/assets/logo-dlx.png";
 
@@ -108,12 +108,37 @@ const Budgets = () => {
       code: budget.code,
       clientName: budget.clients?.name || "Cliente não especificado",
       serviceType: budget.service_type,
-      items: [{ name: budget.description || "Serviço", quantity: 1, unit_price: budget.total_value, subtotal: budget.total_value }],
+      items: [
+        {
+          name: budget.description || "Serviço",
+          quantity: 1,
+          unit_price: budget.total_value,
+          subtotal: budget.total_value,
+        },
+      ],
       discount: budget.discount,
       total_value: budget.total_value,
       date: new Date(budget.created_at).toLocaleDateString("pt-BR"),
       logoBase64,
     });
+  };
+
+  const handleApproveBudget = async (budgetId: string) => {
+    if (!user) return;
+
+    const { error } = await supabase
+      .from("budgets")
+      .update({ status: "approved" })
+      .eq("id", budgetId)
+      .eq("user_id", user.id);
+
+    if (error) {
+      toast({ title: "Erro ao aprovar orçamento", variant: "destructive" });
+      return;
+    }
+
+    toast({ title: "Orçamento marcado como aprovado" });
+    fetchBudgets();
   };
 
   return (
@@ -177,6 +202,24 @@ const Budgets = () => {
                   <TableCell>R$ {budget.total_value.toFixed(2)}</TableCell>
                   <TableCell className="capitalize">{budget.status}</TableCell>
                   <TableCell className="text-right space-x-1">
+                    <Button
+                      variant={budget.status === "approved" ? "outline" : "ghost"}
+                      size="icon"
+                      className={
+                        budget.status === "approved"
+                          ? "text-emerald-400 border-emerald-500/60"
+                          : "text-emerald-400 hover:text-emerald-300"
+                      }
+                      onClick={() => handleApproveBudget(budget.id)}
+                      disabled={budget.status === "approved"}
+                      title={
+                        budget.status === "approved"
+                          ? "Orçamento já aprovado"
+                          : "Marcar como aprovado"
+                      }
+                    >
+                      <CheckCircle2 className="h-4 w-4" />
+                    </Button>
                     <Button
                       variant="ghost"
                       size="icon"
