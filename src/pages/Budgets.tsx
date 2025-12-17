@@ -70,6 +70,27 @@ const Budgets = () => {
     }
   };
 
+  const handleDeleteBudget = async (budgetId: string) => {
+    if (!user) return;
+
+    const confirmed = window.confirm("Tem certeza que deseja excluir este orçamento? Esta ação não pode ser desfeita.");
+    if (!confirmed) return;
+
+    const { error } = await supabase
+      .from("budgets")
+      .delete()
+      .eq("id", budgetId)
+      .eq("user_id", user.id);
+
+    if (error) {
+      toast({ title: "Erro ao excluir orçamento", variant: "destructive" });
+      return;
+    }
+
+    toast({ title: "Orçamento excluído com sucesso" });
+    fetchBudgets();
+  };
+
   const handleExportPDF = async (budget: any) => {
     const imgToBase64 = async (url: string): Promise<string> => {
       const response = await fetch(url);
@@ -155,8 +176,24 @@ const Budgets = () => {
                   <TableCell>{budget.service_type}</TableCell>
                   <TableCell>R$ {budget.total_value.toFixed(2)}</TableCell>
                   <TableCell className="capitalize">{budget.status}</TableCell>
-                  <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" onClick={() => handleExportPDF(budget)}><Download className="h-4 w-4" /></Button>
+                  <TableCell className="text-right space-x-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleExportPDF(budget)}
+                      title="Exportar PDF"
+                    >
+                      <Download className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-destructive hover:text-destructive"
+                      onClick={() => handleDeleteBudget(budget.id)}
+                      title="Excluir orçamento"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
