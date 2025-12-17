@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BeamsBackground } from "@/components/ui/beams-background";
+import neutrogenaAmbos from "@/assets/portfolio-neutrogena-ambos.png";
+import daviBrega from "@/assets/portfolio-davi-brega.png";
+import theuzinho from "@/assets/portfolio-theuzinho.png";
+
 interface PortfolioItem {
   id: string;
   name: string;
@@ -11,17 +15,17 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: "neutrogena-ambos",
     name: "Neutrogena & Ambos Marcam - Campanhas e eventos",
-    image: "/src/assets/portfolio-neutrogena-ambos.png",
+    image: neutrogenaAmbos,
   },
   {
     id: "davi-brega-paredao",
     name: "Davi Brega & Paredão - Identidade visual e capas",
-    image: "/src/assets/portfolio-davi-brega.png",
+    image: daviBrega,
   },
   {
     id: "theuzinho-favela",
     name: "Theuzinho - A Favela tá no Foco 3.0 - Projeto visual completo",
-    image: "/src/assets/portfolio-theuzinho.png",
+    image: theuzinho,
   },
 ];
 
