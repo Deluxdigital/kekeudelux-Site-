@@ -8,8 +8,8 @@ const Hero = () => {
     >
       <div className="container mx-auto text-center md:text-left">
         <div className="relative max-w-3xl animate-fade-in">
-          {/* brilho forte atrás do título, igual ao mock */}
-          <div className="pointer-events-none absolute -left-40 -right-10 -top-32 -bottom-16 -z-10 bg-[radial-gradient(circle_at_left,hsl(var(--neon-purple)/0.7)_0%,hsl(var(--neon-blue)/0.6)_35%,hsl(var(--neon-cyan)/0.55)_55%,transparent_78%)] opacity-100 blur-3xl" />
+          {/* brilho forte atrás do título, com animação suave de pulsar */}
+          <div className="pointer-events-none absolute -left-40 -right-10 -top-32 -bottom-16 -z-10 bg-[radial-gradient(circle_at_left,hsl(var(--neon-purple)/0.7)_0%,hsl(var(--neon-blue)/0.6)_35%,hsl(var(--neon-cyan)/0.55)_55%,transparent_78%)] opacity-100 blur-3xl pulse" />
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
             Quando o Design
