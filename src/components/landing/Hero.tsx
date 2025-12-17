@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { BeamsBackground } from "@/components/ui/beams-background";
+import { HoverButton } from "@/components/ui/hover-button";
 
 const Hero = () => {
   return (
@@ -15,9 +15,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
             Quando o Design
             <br />
-            <span>
-              Encontra o Movimento
-            </span>
+            <span>Encontra o Movimento</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
@@ -26,9 +24,8 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_24px_hsl(var(--neon-purple)/0.6)] hover:shadow-[0_0_40px_hsl(var(--neon-purple)/0.9)] transition-all"
+            <HoverButton
+              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
               onClick={() =>
                 document
                   .getElementById("portfolio")
@@ -36,15 +33,13 @@ const Hero = () => {
               }
             >
               Ver Portfólio
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary/60 bg-background/60 hover:bg-primary/10 hover:border-primary/90"
+            </HoverButton>
+            <HoverButton
+              className="bg-background text-foreground border border-border hover:bg-accent"
               onClick={() => (window.location.href = "/login")}
             >
               Gerenciar Clientes
-            </Button>
+            </HoverButton>
           </div>
         </div>
       </div>
