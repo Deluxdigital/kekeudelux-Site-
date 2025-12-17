@@ -110,24 +110,24 @@ export function BeamsBackground({
         opacityMap[intensity];
 
       const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
-      gradient.addColorStop(0, `hsla(${beam.hue}, 85%, 65%, 0)`);
+      gradient.addColorStop(0, `hsla(0, 0%, 60%, 0)`);
       gradient.addColorStop(
         0.1,
-        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
+        `hsla(0, 0%, 60%, ${pulsingOpacity * 0.5})`
       );
       gradient.addColorStop(
         0.4,
-        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
+        `hsla(0, 0%, 60%, ${pulsingOpacity})`
       );
       gradient.addColorStop(
         0.6,
-        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
+        `hsla(0, 0%, 60%, ${pulsingOpacity})`
       );
       gradient.addColorStop(
         0.9,
-        `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
+        `hsla(0, 0%, 60%, ${pulsingOpacity * 0.5})`
       );
-      gradient.addColorStop(1, `hsla(${beam.hue}, 85%, 65%, 0)`);
+      gradient.addColorStop(1, `hsla(0, 0%, 60%, 0)`);
 
       ctx.fillStyle = gradient;
       ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
@@ -176,10 +176,10 @@ export function BeamsBackground({
         )}
       />
 
-      {/* leve vinheta para cair no preto nas bordas em laranja */}
+      {/* leve vinheta para cair no preto nas bordas em preto/cinza */}
       <div
         className={cn(
-          "pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--neon-orange)/0.35)_0%,transparent_55%),radial-gradient(circle_at_left,hsl(var(--neon-red)/0.3)_0%,transparent_55%),radial-gradient(circle_at_right,hsl(var(--neon-orange)/0.3)_0%,transparent_55%)]",
+          "pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(0_0%_18%/_0.45)_0%,transparent_55%),radial-gradient(circle_at_left,hsl(0_0%_10%/_0.5)_0%,transparent_55%),radial-gradient(circle_at_right,hsl(0_0%_6%/_0.6)_0%,transparent_55%)]",
           monochrome && "grayscale"
         )}
       />
