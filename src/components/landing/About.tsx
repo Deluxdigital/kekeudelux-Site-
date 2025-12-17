@@ -49,51 +49,36 @@ const About = () => {
               className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
               variants={textVariant}
             >
-              <span className="text-sm font-medium text-primary">
-                Quem é KekeuDelux
-              </span>
+              <span className="text-sm font-medium text-primary">Quem é KekeuDelux</span>
             </motion.div>
 
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold"
-              variants={textVariant}
-            >
+            <motion.h2 className="text-4xl md:text-5xl font-bold" variants={textVariant}>
               Kleberson Souza dos Santos
             </motion.h2>
 
-            <motion.div
-              className="space-y-4 text-muted-foreground"
-              variants={textVariant}
-            >
+            <motion.div className="space-y-4 text-muted-foreground" variants={textVariant}>
               <p className="text-lg">
                 Designer gráfico e motion designer, atuando há mais de
-                <strong className="text-foreground"> 5 anos</strong> no mercado
-                criativo.
+                <strong className="text-foreground"> 5 anos</strong> no mercado criativo.
               </p>
 
               <p>
-                Minha trajetória é marcada por dedicação, evolução constante e
-                paixão pelo design. Venho me destacando ao longo do tempo pela
-                criatividade, identidade visual forte e pela busca contínua por
-                entregar trabalhos que unem estética, impacto e profissionalismo.
+                Minha trajetória é marcada por dedicação, evolução constante e paixão pelo design. Em 2018 fundei a
+                Delux Digital e desde lá para cá eu venho me empenhando o bastante para entregar o melhor de mim para os
+                meus clientes me destacando ao longo do tempo pela criatividade, identidade visual forte e pela busca
+                contínua por entregar trabalhos que unem estética, impacto e profissionalismo.
               </p>
 
               <p className="italic border-l-4 border-primary pl-4">
-                "Saí de onde poucos acreditavam ser possível e hoje construo
-                minha história com talento, visão e consistência no mercado
-                criativo."
+                "Saí de onde poucos acreditavam ser possível e hoje construo minha história com talento, visão e
+                consistência no mercado criativo."
               </p>
             </motion.div>
 
-            <motion.div
-              className="grid grid-cols-2 gap-4 pt-6"
-              variants={textVariant}
-            >
+            <motion.div className="grid grid-cols-2 gap-4 pt-6" variants={textVariant}>
               <div className="p-4 rounded-lg bg-card border border-border">
                 <div className="text-3xl font-bold text-primary">5+</div>
-                <div className="text-sm text-muted-foreground">
-                  Anos de Experiência
-                </div>
+                <div className="text-sm text-muted-foreground">Anos de Experiência</div>
               </div>
               <div className="p-4 rounded-lg bg-card border border-border">
                 <div className="text-3xl font-bold text-primary">∞</div>
