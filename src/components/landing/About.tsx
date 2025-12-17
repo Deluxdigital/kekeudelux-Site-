@@ -1,5 +1,34 @@
 import { BeamsBackground } from "@/components/ui/beams-background";
 import profilePortrait from "@/assets/profile-portrait.png";
+import { motion } from "framer-motion";
+
+const textVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
+const imageVariant = {
+  hidden: { opacity: 0, x: 60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7 },
+  },
+};
+
+const staggerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
 
 const About = () => {
   return (
@@ -8,19 +37,34 @@ const About = () => {
       <BeamsBackground className="absolute inset-0 -z-10" intensity="strong" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+        <motion.div
+          className="grid md:grid-cols-2 gap-12 items-center"
+          variants={staggerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.div className="space-y-6" variants={textVariant}>
+            <motion.div
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+              variants={textVariant}
+            >
               <span className="text-sm font-medium text-primary">
                 Quem é KekeuDelux
               </span>
-            </div>
+            </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold"
+              variants={textVariant}
+            >
               Kleberson Souza dos Santos
-            </h2>
+            </motion.h2>
 
-            <div className="space-y-4 text-muted-foreground">
+            <motion.div
+              className="space-y-4 text-muted-foreground"
+              variants={textVariant}
+            >
               <p className="text-lg">
                 Designer gráfico e motion designer, atuando há mais de
                 <strong className="text-foreground"> 5 anos</strong> no mercado
@@ -39,9 +83,12 @@ const About = () => {
                 minha história com talento, visão e consistência no mercado
                 criativo."
               </p>
-            </div>
+            </motion.div>
 
-            <div className="grid grid-cols-2 gap-4 pt-6">
+            <motion.div
+              className="grid grid-cols-2 gap-4 pt-6"
+              variants={textVariant}
+            >
               <div className="p-4 rounded-lg bg-card border border-border">
                 <div className="text-3xl font-bold text-primary">5+</div>
                 <div className="text-sm text-muted-foreground">
@@ -52,10 +99,10 @@ const About = () => {
                 <div className="text-3xl font-bold text-primary">∞</div>
                 <div className="text-sm text-muted-foreground">Criatividade</div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div className="relative" variants={imageVariant}>
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-neon-purple/30 via-neon-blue/25 to-neon-cyan/25 border-2 border-primary/40 overflow-hidden shadow-[0_0_50px_hsl(var(--neon-purple)/0.6)]">
               <img
                 src={profilePortrait}
@@ -63,8 +110,8 @@ const About = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
