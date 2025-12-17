@@ -8,6 +8,7 @@ interface AnimatedGradientBackgroundProps {
   className?: string;
   children?: React.ReactNode;
   intensity?: "subtle" | "medium" | "strong";
+  monochrome?: boolean;
 }
 
 interface Beam {
@@ -43,6 +44,7 @@ export function BeamsBackground({
   className,
   children,
   intensity = "strong",
+  monochrome = false,
 }: AnimatedGradientBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const beamsRef = useRef<Beam[]>([]);
@@ -168,16 +170,27 @@ export function BeamsBackground({
       {/* canvas com feixes animados */}
       <canvas
         ref={canvasRef}
-        className="pointer-events-none absolute inset-0 -z-10"
+        className={cn(
+          "pointer-events-none absolute inset-0 -z-10",
+          monochrome && "grayscale"
+        )}
       />
 
       {/* leve vinheta para cair no preto nas bordas */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--neon-blue)/0.35)_0%,transparent_55%),radial-gradient(circle_at_left,hsl(var(--neon-purple)/0.3)_0%,transparent_55%),radial-gradient(circle_at_right,hsl(var(--neon-cyan)/0.3)_0%,transparent_55%)]" />
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(var(--neon-blue)/0.35)_0%,transparent_55%),radial-gradient(circle_at_left,hsl(var(--neon-purple)/0.3)_0%,transparent_55%),radial-gradient(circle_at_right,hsl(var(--neon-cyan)/0.3)_0%,transparent_55%)]",
+          monochrome && "grayscale"
+        )}
+      />
 
       {/* animação sutil de respiração do brilho geral */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(0_0%_0%/0.6)_0%,transparent_55%)] mix-blend-screen"
+        className={cn(
+          "pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,hsl(0_0%_0%/0.6)_0%,transparent_55%)] mix-blend-screen",
+          monochrome && "grayscale"
+        )}
         initial={{ opacity: 0.5 }}
         animate={{ opacity: [0.4, 0.9, 0.4] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}

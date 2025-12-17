@@ -1,13 +1,23 @@
+import { BeamsBackground } from "@/components/ui/beams-background";
 import profilePortrait from "@/assets/profile-portrait.png";
 
 const About = () => {
   return (
-    <section id="sobre" className="py-24 px-4">
-      <div className="container mx-auto max-w-5xl">
+    <section id="sobre" className="relative py-24 px-4 overflow-hidden">
+      {/* fundo com efeito herói em preto e branco */}
+      <BeamsBackground
+        className="absolute inset-0 -z-10"
+        intensity="medium"
+        monochrome
+      />
+
+      <div className="container mx-auto max-w-5xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-              <span className="text-sm font-medium text-primary">Quem é KekeuDelux</span>
+              <span className="text-sm font-medium text-primary">
+                Quem é KekeuDelux
+              </span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold">
