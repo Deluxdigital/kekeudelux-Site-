@@ -62,6 +62,8 @@ export default {
           blue: "hsl(var(--neon-blue))",
           cyan: "hsl(var(--neon-cyan))",
           pink: "hsl(var(--neon-pink))",
+          red: "hsl(var(--neon-red))",
+          orange: "hsl(var(--neon-orange))",
         },
       },
       borderRadius: {
@@ -98,10 +100,11 @@ export default {
         },
         "glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px hsl(var(--neon-purple) / 0.5)",
+            boxShadow: "0 0 20px hsl(var(--neon-red) / 0.5)",
           },
           "50%": {
-            boxShadow: "0 0 40px hsl(var(--neon-purple) / 0.8), 0 0 60px hsl(var(--neon-blue) / 0.6)",
+            boxShadow:
+              "0 0 40px hsl(var(--neon-orange) / 0.8), 0 0 60px hsl(var(--neon-red) / 0.6)",
           },
         },
       },

@@ -15,7 +15,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
             Quando o Design
             <br />
-            <span className="bg-gradient-to-r from-neon-purple via-neon-blue to-neon-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-neon-orange via-neon-red to-neon-orange bg-clip-text text-transparent">
               Encontra o Movimento
             </span>
           </h1>
