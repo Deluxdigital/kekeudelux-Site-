@@ -1,6 +1,42 @@
+import { useEffect, useState } from "react";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { BadgeCheck, MessageCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+
+interface ContactLinks {
+  behance: string;
+  whatsapp: string;
+}
+
+const DEFAULT_LINKS: ContactLinks = {
+  behance: "https://www.behance.net/kekeudeluux",
+  whatsapp: "https://wa.me/message/OPI7P6PY42BVI1",
+};
 
 const Contact = () => {
+  const [links, setLinks] = useState<ContactLinks>(DEFAULT_LINKS);
+
+  useEffect(() => {
+    const loadLinks = async () => {
+      const { data, error } = await supabase
+        .from("contact_links")
+        .select("key, url")
+        .in("key", ["behance", "whatsapp"]);
+
+      if (error || !data) return;
+
+      const map: Partial<ContactLinks> = {};
+      data.forEach((row) => {
+        if (row.key === "behance") map.behance = row.url;
+        if (row.key === "whatsapp") map.whatsapp = row.url;
+      });
+
+      setLinks((prev) => ({ ...prev, ...map }));
+    };
+
+    loadLinks();
+  }, []);
+
   return (
     <section id="contato" className="py-24 px-4 bg-card/30">
       <div className="container mx-auto max-w-4xl text-center">
@@ -22,20 +58,20 @@ const Contact = () => {
             <ShimmerButton
               background="hsl(var(--foreground))"
               shimmerColor="#ffffff"
-              className="text-background min-w-[210px]"
-              onClick={() => window.open("https://wa.me/seu-numero-aqui", "_blank")}
+              className="text-background min-w-[230px]"
+              onClick={() => window.open(links.whatsapp, "_blank")}
             >
-              Falar no WhatsApp
+              <MessageCircle className="h-4 w-4" />
+              <span>Falar no WhatsApp</span>
             </ShimmerButton>
             <ShimmerButton
               background="hsl(var(--background))"
               shimmerColor="#ffffff"
-              className="text-foreground border border-border min-w-[230px]"
-              onClick={() =>
-                window.open("https://www.behance.net/kekeudeluux", "_blank")
-              }
+              className="text-foreground border border-border min-w-[260px]"
+              onClick={() => window.open(links.behance, "_blank")}
             >
-              Ver Portfólio no Behance
+              <BadgeCheck className="h-4 w-4" />
+              <span>Ver Portfólio no Behance</span>
             </ShimmerButton>
           </div>
 
