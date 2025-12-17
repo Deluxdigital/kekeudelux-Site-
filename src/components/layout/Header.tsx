@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-dlx.png";
+import { SaveButton } from "@/components/ui/save-button";
 
 const Header = () => {
   return (
@@ -12,25 +12,41 @@ const Header = () => {
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#inicio" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <a
+              href="#inicio"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
               Início
             </a>
-            <a href="#sobre" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <a
+              href="#sobre"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
               Sobre
             </a>
-            <a href="#servicos" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <a
+              href="#servicos"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
               Serviços
             </a>
-            <a href="#portfolio" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <a
+              href="#portfolio"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
               Portfólio
             </a>
-            <a href="#contato" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <a
+              href="#contato"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
               Contato
             </a>
             <Link to="/login">
-              <Button variant="outline" className="border-primary/50 hover:bg-primary/10 hover:border-primary">
-                Entrar
-              </Button>
+              <SaveButton
+                text={{ idle: "Entrar", saving: "Entrando...", saved: "Pronto" }}
+                className="ml-2"
+              />
             </Link>
           </nav>
         </div>

@@ -1,5 +1,5 @@
 import { BeamsBackground } from "@/components/ui/beams-background";
-import { HoverButton } from "@/components/ui/hover-button";
+import { SaveButton } from "@/components/ui/save-button";
 import { PixelCursorTrail } from "@/components/ui/pixel-trail";
 
 const Hero = () => {
@@ -26,22 +26,18 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <HoverButton
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md"
+              <SaveButton
+                text={{ idle: "Ver Portfólio", saving: "Abrindo...", saved: "Pronto" }}
                 onClick={() =>
                   document
                     .getElementById("portfolio")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-              >
-                Ver Portfólio
-              </HoverButton>
-              <HoverButton
-                className="bg-background text-foreground border border-border hover:bg-accent"
+              />
+              <SaveButton
+                text={{ idle: "Gerenciar Clientes", saving: "Abrindo...", saved: "Pronto" }}
                 onClick={() => (window.location.href = "/login")}
-              >
-                Gerenciar Clientes
-              </HoverButton>
+              />
             </div>
           </div>
         </div>
