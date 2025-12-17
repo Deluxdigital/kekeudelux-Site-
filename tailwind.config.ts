@@ -91,14 +91,14 @@ export default {
         "fade-in": {
           "0%": {
             opacity: "0",
-            transform: "translateY(10px)"
+            transform: "translateY(10px)",
           },
           "100%": {
             opacity: "1",
-            transform: "translateY(0)"
-          }
+            transform: "translateY(0)",
+          },
         },
-        "glow": {
+        glow: {
           "0%, 100%": {
             boxShadow: "0 0 20px hsl(var(--neon-red) / 0.5)",
           },
@@ -107,12 +107,25 @@ export default {
               "0 0 40px hsl(var(--neon-orange) / 0.8), 0 0 60px hsl(var(--neon-red) / 0.6)",
           },
         },
+        "shimmer-slide": {
+          to: {
+            transform: "translate(calc(100cqw - 100%), 0)",
+          },
+        },
+        "spin-around": {
+          "0%": { transform: "translateZ(0) rotate(0deg)" },
+          "15%, 35%": { transform: "translateZ(0) rotate(90deg)" },
+          "65%, 85%": { transform: "translateZ(0) rotate(270deg)" },
+          "100%": { transform: "translateZ(0) rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
-        "glow": "glow 2s ease-in-out infinite",
+        glow: "glow 2s ease-in-out infinite",
+        "shimmer-slide": "shimmer-slide var(--speed,3s) ease-in-out infinite alternate",
+        "spin-around": "spin-around calc(var(--speed,3s)*2) infinite linear",
       },
     },
   },
