@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import profilePortrait from "@/assets/profile-portrait.png";
+import logoDlxHero from "@/assets/logo-dlx-hero.png";
 
 const Hero = () => {
   return (
@@ -46,11 +46,11 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-neon-purple/40 via-neon-blue/30 to-neon-cyan/30 overflow-hidden shadow-[0_0_40px_hsl(var(--neon-purple)/0.6)]">
+        <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-neon-purple/40 via-neon-blue/30 to-neon-cyan/30 overflow-hidden shadow-[0_0_40px_hsl(var(--neon-purple)/0.6)] flex items-center justify-center">
           <img
-            src={profilePortrait}
-            alt="Retrato do artista"
-            className="w-full h-full object-cover"
+            src={logoDlxHero}
+            alt="Logo KekeuDelux"
+            className="max-w-[70%] max-h-[70%] object-contain"
           />
           <GlowingEffect className="rounded-3xl" />
         </div>
