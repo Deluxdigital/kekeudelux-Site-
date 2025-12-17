@@ -150,6 +150,24 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_links: {
+        Row: {
+          created_at: string
+          key: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          key: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          key?: string
+          url?: string
+        }
+        Relationships: []
+      }
       portfolio_items: {
         Row: {
           created_at: string
