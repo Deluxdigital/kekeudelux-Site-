@@ -42,7 +42,7 @@ const About = () => {
           variants={staggerVariant}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           <motion.div className="space-y-6" variants={textVariant}>
             <motion.div
