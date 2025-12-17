@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-import logoDlxHero from "@/assets/logo-dlx-hero.png";
 
 const Hero = () => {
   return (
@@ -8,8 +6,8 @@ const Hero = () => {
       id="inicio"
       className="min-h-screen flex items-center justify-center pt-20 px-4"
     >
-      <div className="container mx-auto grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] items-center">
-        <div className="text-center md:text-left animate-fade-in">
+      <div className="container mx-auto text-center md:text-left">
+        <div className="max-w-3xl animate-fade-in">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
             Quando o Design
             <br />
@@ -44,15 +42,6 @@ const Hero = () => {
               Gerenciar Clientes
             </Button>
           </div>
-        </div>
-
-        <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-neon-purple/40 via-neon-blue/30 to-neon-cyan/30 overflow-hidden shadow-[0_0_40px_hsl(var(--neon-purple)/0.6)] flex items-center justify-center">
-          <img
-            src={logoDlxHero}
-            alt="Logo KekeuDelux"
-            className="max-w-[70%] max-h-[70%] object-contain"
-          />
-          <GlowingEffect className="rounded-3xl" />
         </div>
       </div>
     </section>
