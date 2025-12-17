@@ -9,49 +9,19 @@ interface PortfolioItem {
 
 const portfolioItems: PortfolioItem[] = [
   {
-    id: "capa",
-    name: "Neutrogena - Quando a originalidade pede licença",
-    image: "/src/assets/CAPA.png",
+    id: "neutrogena-ambos",
+    name: "Neutrogena & Ambos Marcam - Campanhas e eventos",
+    image: "/src/assets/portfolio-neutrogena-ambos.png",
   },
   {
-    id: "resultados-que-inspiram",
-    name: "Neutrogena - Resultados que inspiram",
-    image: "/src/assets/RESULTAADOS-QUE-INSPIRAM.png",
+    id: "davi-brega-paredao",
+    name: "Davi Brega & Paredão - Identidade visual e capas",
+    image: "/src/assets/portfolio-davi-brega.png",
   },
   {
-    id: "encerramento",
-    name: "Neutrogena - Influência é sobre conexão",
-    image: "/src/assets/ENCERRAMENTO.png",
-  },
-  {
-    id: "o-evento",
-    name: "Neutrogena - O evento",
-    image: "/src/assets/O-EVENTO.png",
-  },
-  {
-    id: "ambos-marcam-capa",
-    name: "Ambos Marcam - Quando o jogo acaba o impacto continua",
-    image: "/src/assets/CAPA_CARROSSEL_AMBOS.png",
-  },
-  {
-    id: "ambos-marcam-card-2",
-    name: "Ambos Marcam - Saúde mental não é pauta secundária",
-    image: "/src/assets/CARD_CARROSSEL_AMBOS_2.png",
-  },
-  {
-    id: "ambos-marcam-card-4",
-    name: "Ambos Marcam - A gincana não é só entretenimento",
-    image: "/src/assets/CARD_CARROSSEL_AMBOS_4.png",
-  },
-  {
-    id: "ambos-marcam-logo",
-    name: "Ambos Marcam - Identidade visual",
-    image: "/src/assets/CARD_FINAL.png",
-  },
-  {
-    id: "z4-artes",
-    name: "Z4 Store - Artes de lançamento de produtos",
-    image: "/src/assets/artes.png",
+    id: "theuzinho-favela",
+    name: "Theuzinho - A Favela tá no Foco 3.0 - Projeto visual completo",
+    image: "/src/assets/portfolio-theuzinho.png",
   },
 ];
 
