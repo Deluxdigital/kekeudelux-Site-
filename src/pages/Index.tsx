@@ -5,12 +5,12 @@ import Services from "@/components/landing/Services";
 import Portfolio from "@/components/landing/Portfolio";
 import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
-import { DotScreenShader } from "@/components/ui/dot-shader-background";
+import { SparklesCore } from "@/components/ui/sparkles";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <DotScreenShader />
+      <SparklesCore className="opacity-70" particleColor="rgba(168,85,247,0.7)" />
       <div className="relative z-10">
         <Header />
         <Hero />
